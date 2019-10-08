@@ -4,14 +4,27 @@ import { NativeRouter, Route, Link } from "react-router-native";
 
 import { Provider } from 'react-redux';
 import store from './store.js';
+// import transform from 'css-to-react-native';
+import { HomePage, CartPage } from './components/pages';
+import ShopHeader from './components/shop-header';
 
 const App = () => {
   return (
-    <Provider store={store}>
+    <NativeRouter>
+      <Provider store={store}>
       <View>
-        <Text>Hello World!</Text>
+        <ShopHeader numItems={5} total={210} />
+          <Route 
+            path='/'
+            component={HomePage}
+            exact />
+					<Route 
+            path='/cart'
+            component={CartPage}
+            />
       </View>      
     </Provider>
+    </NativeRouter>     
   );
 };
 
