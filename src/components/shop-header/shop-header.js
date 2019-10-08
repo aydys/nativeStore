@@ -1,21 +1,29 @@
 import React from 'react';
 import { Link } from "react-router-native";
 import { View, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/Entypo';
 
 // import './shop-header.css';
 
 const ShopHeader = ({ numItems, total }) => {
   return (
-    <View className='shop-header row'>
+    <View style={{
+      flexDirection: 'row',
+      height: 100,
+      padding: 20,
+      justifyContent: 'space-between'
+    }}>
       <Link to='/'>
-        <Text className='logo text-dark'>ReStore</Text>
+        <Text style={{
+          alignSelf: 'center',
+          fontSize: 32
+        }}>ReStore</Text>
       </Link>
       <Link to='/cart'>
-          <Text>Test</Text>
-        {/* <div className='shopping-cart'>
-          <i className='cart-icon fa fa-shopping-cart' />
+        <Text>
+          <Icon name='shopping-cart' size={30} color='#900' />
           {numItems} items (${total})
-        </div> */}
+        </Text>
       </Link>
     </View>
   )
